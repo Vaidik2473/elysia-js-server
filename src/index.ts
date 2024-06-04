@@ -1,5 +1,7 @@
 import { Elysia } from "elysia";
 import { respinseData } from "../response";
+import { swagger } from "@elysiajs/swagger";
+
 const port = process.env.PORT || 4000;
 
 const responseData = {
@@ -74,6 +76,7 @@ const responsev2 = {
 };
 
 const app = new Elysia()
+  .use(swagger())
   .get("/", () => {
     return {
       respinseData,
